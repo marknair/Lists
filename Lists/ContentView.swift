@@ -21,6 +21,19 @@ struct ContentView: View {
                       "Shrimp Sushi",
                       "Ikura Sushi"]
     
+    var sushiImages = ["onigiri",
+                       "meguro-sushi",
+                       "tako-sushi",
+                       "avocado-maki",
+                       "tobiko-spicy-maki",
+                       "salmon-sushi",
+                       "hamachi-sushi",
+                       "kani-sushi",
+                       "tamago-sushi",
+                       "california-roll",
+                       "shrimp-sushi",
+                       "ikura-sushi"]
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
