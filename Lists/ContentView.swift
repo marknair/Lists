@@ -8,6 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    struct Menu: Identifiable {
+        var id = UUID()
+        var name: String
+        var image: String
+    }
+    
+    var sushi = [Menu(name: "Onigiri", image: "onigiri"),
+                 Menu(name: "Meguro Sushi", image: "meguro-sushi"),
+                 Menu(name: "Tako Sushi", image: "tako-sushi"),
+                 Menu(name: "Avocado Maki", image: "avocado-maki"),
+                 Menu(name: "Avocado Maki", image: "tobiko-spicy-maki")
+    ]
+    
     var sushiNames = ["Onigiri",
                       "Meguro Sushi",
                       "Tako Sushi",
@@ -35,13 +48,16 @@ struct ContentView: View {
                        "ikura-sushi"]
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List(sushi) { menuItem in
+            HStack {
+                Image(menuItem.image)
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .cornerRadius(5)
+                Text(menuItem.name)
+            }
         }
-        .padding()
+        .listStyle(.plain)
     }
 }
 
