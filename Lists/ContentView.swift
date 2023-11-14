@@ -8,6 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    var sushiNames = ["Onigiri",
+                      "Meguro Sushi",
+                      "Tako Sushi",
+                      "Avocado Maki",
+                      "Tobiko Spicy Maki",
+                      "Salmon Sushi",
+                      "Hamachi Sushi",
+                      "Kani Sushi",
+                      "Tamago Sushi",
+                      "California Roll",
+                      "Shrimp Sushi",
+                      "Ikura Sushi"]
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
