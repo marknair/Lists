@@ -46,9 +46,16 @@ struct ContentView: View {
     
     var body: some View {
         List(menuItems) { menuItem in
-            BasicImageRow(menuItem: menuItem)
+            FullImageRow(menuItem: menuItem)
         }
-        .listStyle(.plain)
+        .background (
+            Image("onigiri")
+                .resizable()
+                .scaledToFill()
+                .clipped()
+                .ignoresSafeArea()
+        )
+        .scrollContentBackground(.hidden)
     }
 }
 
@@ -71,6 +78,29 @@ struct BasicImageRow: View {
                 .frame(width: 40, height: 40)
                 .cornerRadius(5)
             Text(menuItem.name)
+        }
+    }
+}
+
+struct FullImageRow: View {
+    var menuItem: Menu
+    var body: some View {
+        ZStack {
+            Image(menuItem.image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(height: 200)
+                .cornerRadius(10)
+                .overlay(
+                    Rectangle()
+                        .foregroundStyle(.black)
+                        .cornerRadius(10)
+                        .opacity(0.2)
+                )
+            Text(menuItem.name)
+                .font(.system(.title, design: .rounded))
+                .fontWeight(.black)
+                .foregroundStyle(.white)
         }
     }
 }
